@@ -8,3 +8,25 @@ body('Send_an_HTTP_request_to_SharePoint')?['PrimaryQueryResult']?['RelevantResu
 
 
 body('Send_an_HTTP_request_to_SharePoint')?['PrimaryQueryResult']?['RelevantResults']?['TotalRows']
+
+
+
+Set(
+    varSearchResults;
+    SearchinDocuments.Run(
+        Coalesce(
+            txtSearch.Text;
+            "*"
+        );
+        drpPaginationSize.Selected.Value;
+        varFrom
+    )
+);;
+Set(
+    varTotalCount;
+    varSearchResults.totalrows
+);;
+Set(
+    varTotalCount;
+    varSearchResults.rowcount
+);;
